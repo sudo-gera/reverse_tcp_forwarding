@@ -25,4 +25,4 @@ jobs:
           body: |
             Automated build from commit ${{ github.sha }}
           files: |
-            dist/
+            dist/reverse_tcp_forwarding
