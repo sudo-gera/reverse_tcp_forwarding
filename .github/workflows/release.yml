@@ -1,0 +1,28 @@
+name: build
+
+on:
+  push:
+    branches: ["deploy"]
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # REQUIRED to create releases
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: bash -xeu ./build.sh
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: deploy-${{ github.run_number }}
+          name: Deploy build ${{ github.run_number }} from commit ${{ github.sha }}
+          body: |
+            Automated build from commit ${{ github.sha }}
+          files: |
+            dist/
