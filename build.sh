@@ -22,5 +22,5 @@ g++ \
 
 
 
-    -DNDEBUG \
+#    -DNDEBUG \
 
