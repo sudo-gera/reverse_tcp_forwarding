@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build
-        run: bash -xeu ./build.sh
+        run: sudo bash -xeu ./build.sh
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
