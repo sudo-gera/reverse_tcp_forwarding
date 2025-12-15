@@ -9,6 +9,7 @@ mkdir dist
 
 g++ \
     -DSOURCE_CODE="$(cat reverse_tcp_forwarding.cpp | base64 -w 0)" \
+    -DNDEBUG \
     -std=c++20 \
     -Ofast \
     -Wall \
